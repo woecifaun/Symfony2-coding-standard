@@ -1,0 +1,22 @@
+{
+    "name": "mikaelrandy/symfony2-coding-standard",
+    "description": "Symfony2 PHP CodeSniffer Coding Standard",
+    "keywords": ["phpcs", "CodeSniffer", "Symfony2", "Standard"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mikael Randy",
+            "email": "mikael.randy@gmail.com",
+            "homepage": "http://www.mikaelrandy.fr",
+            "role": "maintainer"
+        }
+    ],
+    "support" : {
+        "source": "https://github.com/mikaelrandy/Symfony2-coding-standard",
+        "issues": "https://github.com/mikaelrandy/Symfony2-coding-standard/issues"
+    },
+    "suggest": {
+        "instaclick/php-code-sniffer": "PHP CodeSniffer",
+        "m6web/coke": "PHP CodeSniffer configurator"
+    }
+}
