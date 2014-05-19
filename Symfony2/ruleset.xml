@@ -78,6 +78,10 @@
         <severity>0</severity>
     </rule>
 
+    <rule ref="Symfony2.Commenting.FunctionComment.ParameterCommentsNotAligned">
+        <severity>0</severity>
+    </rule>
+
     <rule ref="Symfony2.Commenting.FunctionComment.SpacingBeforeTags">
         <severity>0</severity>
     </rule>
