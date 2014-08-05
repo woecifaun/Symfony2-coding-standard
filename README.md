@@ -4,6 +4,8 @@ A code standard to check against the [Symfony coding standards](http://symfony.c
 
 The reason of the fork is to use this PHP CodeSniffer coding standard with [M6Web/Coke](https://github.com/M6Web/Coke).
 
+http://tech.m6web.fr/verifier-la-coherence-du-code-d-un-projet-symfony2-avec-coke/ (in french)
+
 ## Installation
 
 1. [Install composer](https://getcomposer.org/download/)
