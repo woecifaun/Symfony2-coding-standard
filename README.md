@@ -2,9 +2,9 @@
 
 A code standard to check against the [Symfony coding standards](http://symfony.com/doc/current/contributing/code/standards.html), forked from [opensky/Symfony2-coding-standard](https://github.com/opensky/Symfony2-coding-standard) to allow installation with composer.
 
-The reason of the fork is to use this PHP CodeSniffer coding standard with [M6Web/Coke](https://github.com/M6Web/Coke).
+The reason of the fork is to use this PHP CodeSniffer coding standard with [M6Web/Coke](https://github.com/M6Web/Coke). More details [on our tech blog](http://tech.m6web.fr/verifier-la-coherence-du-code-d-un-projet-symfony2-avec-coke/) (in french).
 
-http://tech.m6web.fr/verifier-la-coherence-du-code-d-un-projet-symfony2-avec-coke/ (in french)
+We also added to this project our own standard for our Symfony2 developments entitled `M6Web_Symfony2`.
 
 ## Installation
 
@@ -30,6 +30,12 @@ http://tech.m6web.fr/verifier-la-coherence-du-code-d-un-projet-symfony2-avec-cok
 
     ```shell
     standard=vendor/m6web/symfony2-coding-standard/Symfony2
+    ```
+
+    or if you want to use our standard:
+
+    ```shell
+    standard=vendor/m6web/symfony2-coding-standard/M6Web_Symfony2
     ```
 
 5. Enjoy
