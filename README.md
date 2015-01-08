@@ -4,8 +4,6 @@ A code standard to check against the [Symfony coding standards](http://symfony.c
 
 The reason of the fork is to use this PHP CodeSniffer coding standard with [M6Web/Coke](https://github.com/M6Web/Coke). More details [on our tech blog](http://tech.m6web.fr/verifier-la-coherence-du-code-d-un-projet-symfony2-avec-coke/) (in french).
 
-We also added to this project our own standard for our Symfony2 developments entitled `M6Web_Symfony2`.
-
 ## Installation
 
 1. [Install composer](https://getcomposer.org/download/)
@@ -29,13 +27,13 @@ We also added to this project our own standard for our Symfony2 developments ent
 4. Create a `.coke` file a the root of the project who contain: 
 
     ```shell
-    standard=vendor/m6web/symfony2-coding-standard/Symfony2
+    standard=vendor/m6web/symfony2-coding-standard/{standard}
     ```
 
-    or if you want to use our standard:
+NB : it's possible to use more than one standard, by separating it with comma :
 
     ```shell
-    standard=vendor/m6web/symfony2-coding-standard/M6Web_Symfony2
+    standard={standard1},{standard2}
     ```
 
 5. Enjoy
@@ -43,6 +41,13 @@ We also added to this project our own standard for our Symfony2 developments ent
     ```shell
     ./vendor/bin/coke
     ```
+
+## Standards
+
+3 standards are proposed :
+* `Symfony2` : Strict [Symfony coding standards](http://symfony.com/doc/current/contributing/code/standards.html)
+* `M6Web_Symfony2` : Our own standard inspired from `Symfony2`, extended for our Symfony2 developments.
+* `Security` : Security check for common vulnerabilities on Symfony2 projects
 
 ## Credits
 
