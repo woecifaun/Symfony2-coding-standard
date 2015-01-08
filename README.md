@@ -48,6 +48,8 @@ We also added to this project our own standard for our Symfony2 developments ent
 
 Developped by [M6Web](http://tech.m6web.fr/).
 
+Security Snifs come initialy from [Pheromone/phpcs-security-audit](https://github.com/Pheromone/phpcs-security-audit).
+
 ## License
 
 This project is licensed under the [MIT license](LICENSE).
