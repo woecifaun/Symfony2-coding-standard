@@ -44,8 +44,6 @@ class Security_Sniffs_BadFunctions_FilesystemFunctionsSniff implements PHP_CodeS
 				$msg = 'Filesystem function ' . $tokens[$stackPtr]['content'] . '() detected with dynamic parameter';
 				if ($utils::is_token_user_input($tokens[$s])) {
 					$phpcsFile->addError($msg . ' directly from user input', $stackPtr, 'ErrFilesystem');
-				} else {
-					$phpcsFile->addNotice($msg, $stackPtr, 'WarnFilesystem');
 				}
 			}
 		}
