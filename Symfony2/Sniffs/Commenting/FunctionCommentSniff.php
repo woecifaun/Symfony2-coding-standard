@@ -6,10 +6,10 @@
  *
  * @category PHP
  * @package  PHP_CodeSniffer-Symfony2
- * @author   Symfony2-phpcs-authors <Symfony2-coding-standard@opensky.github.com>
+ * @author   Symfony2-phpcs-authors <Symfony2-coding-standard@m6web.github.com>
  * @license  http://spdx.org/licenses/MIT MIT License
  * @version  GIT: master
- * @link     https://github.com/opensky/Symfony2-coding-standard
+ * @link     https://github.com/M6Web/Symfony2-coding-standard
  */
 
 if (class_exists('PEAR_Sniffs_Commenting_FunctionCommentSniff', true) === false) {
@@ -68,29 +68,31 @@ class Symfony2_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commen
     /**
      * Process the return comment of this function comment.
      *
-     * @param int $commentStart The position in the stack where the comment started.
-     * @param int $commentEnd   The position in the stack where the comment ended.
+     * @param PHP_CodeSniffer_File $phpcsFile    The file being scanned.
+     * @param int                  $stackPtr     The position of the current token
+     *                                           in the stack passed in $tokens.
+     * @param int                  $commentStart The position in the stack where the comment started.
      *
      * @return void
      */
-    protected function processReturn($commentStart, $commentEnd)
+    protected function processReturn(PHP_CodeSniffer_File $phpcsFile, $stackPtr, $commentStart)
     {
-        if ($this->isInheritDoc()) {
+
+        if ($this->isInheritDoc($phpcsFile, $stackPtr)) {
             return;
         }
 
-        $tokens = $this->currentFile->getTokens();
-        $funcPtr = $this->currentFile->findNext(T_FUNCTION, $commentEnd);
+        $tokens = $phpcsFile->getTokens();
 
         // Only check for a return comment if a non-void return statement exists
-        if (isset($tokens[$funcPtr]['scope_opener'])) {
-            $start = $tokens[$funcPtr]['scope_opener'];
+        if (isset($tokens[$stackPtr]['scope_opener'])) {
+            $start = $tokens[$stackPtr]['scope_opener'];
 
             // iterate over all return statements of this function,
             // run the check on the first which is not only 'return;'
-            while ($returnToken = $this->currentFile->findNext(T_RETURN, $start, $tokens[$funcPtr]['scope_closer'])) {
+            while ($returnToken = $phpcsFile->findNext(T_RETURN, $start, $tokens[$stackPtr]['scope_closer'])) {
                 if ($this->isMatchingReturn($tokens, $returnToken)) {
-                    parent::processReturn($commentStart, $commentEnd);
+                    parent::processReturn($phpcsFile, $stackPtr, $commentStart);
                     break;
                 }
                 $start = $returnToken + 1;
@@ -102,11 +104,20 @@ class Symfony2_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commen
     /**
      * Is the comment an inheritdoc?
      *
+     * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
+     * @param int                  $stackPtr  The position of the current token
+     *                                        in the stack passed in $tokens.
+     *
      * @return boolean True if the comment is an inheritdoc
      */
-    protected function isInheritDoc ()
+    protected function isInheritDoc(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
     {
-        $content = $this->commentParser->getComment()->getContent();
+        $tokens = $phpcsFile->getTokens();
+
+        $start = $phpcsFile->findPrevious(T_DOC_COMMENT_OPEN_TAG, $stackPtr - 1);
+        $end = $phpcsFile->findNext(T_DOC_COMMENT_CLOSE_TAG, $start);
+
+        $content = $phpcsFile->getTokensAsString($start, ($end - $start));
 
         return preg_match('#{@inheritdoc}#i', $content) === 1;
     } // end isInheritDoc()
@@ -114,18 +125,22 @@ class Symfony2_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commen
     /**
      * Process the function parameter comments.
      *
-     * @param int $commentStart The position in the stack where
-     *                          the comment started.
+     * @param PHP_CodeSniffer_File $phpcsFile    The file being scanned.
+     * @param int                  $stackPtr     The position of the current token
+     *                                           in the stack passed in $tokens.
+     * @param int                  $commentStart The position in the stack where the comment started.
      *
      * @return void
      */
-    protected function processParams($commentStart)
+    protected function processParams(PHP_CodeSniffer_File $phpcsFile, $stackPtr, $commentStart)
     {
-        if ($this->isInheritDoc()) {
+        $tokens = $phpcsFile->getTokens();
+
+        if ($this->isInheritDoc($phpcsFile, $stackPtr)) {
             return;
         }
 
-        parent::processParams($commentStart);
+        parent::processParams($phpcsFile, $stackPtr, $commentStart);
     } // end processParams()
 
     /**
@@ -136,7 +151,7 @@ class Symfony2_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commen
      *
      * @return boolean True if the return does not return anything
      */
-    protected function isMatchingReturn ($tokens, $returnPos)
+    protected function isMatchingReturn($tokens, $returnPos)
     {
         do {
             $returnPos++;

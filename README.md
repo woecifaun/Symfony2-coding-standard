@@ -46,7 +46,8 @@ We also added to this project our own standard for our Symfony2 developments ent
 
 ## Credits
 
-Developped by [M6Web](http://tech.m6web.fr/).
+Developped by [M6Web](http://tech.m6web.fr/), cloned from [lapistano/Symfony2-coding-standard](https://github.com/lapistano/Symfony2-coding-standard).
+The PHP_CodeSniffer 2.0+ Symfony2 standard is very broadly inspired from [escapestudios/Symfony2-coding-standard](https://github.com/escapestudios/Symfony2-coding-standard)
 
 ## License
 
