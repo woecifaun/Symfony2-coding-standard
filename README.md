@@ -1,5 +1,8 @@
 # Symfony2 PHP CodeSniffer Coding Standard
 
+[![Latest Stable Version](https://poser.pugx.org/m6web/symfony2-coding-standard/v/stable)](https://packagist.org/packages/m6web/symfony2-coding-standard)
+[![Total Downloads](https://poser.pugx.org/m6web/symfony2-coding-standard/downloads)](https://packagist.org/packages/m6web/symfony2-coding-standard)
+
 A code standard to check against the [Symfony coding standards](http://symfony.com/doc/current/contributing/code/standards.html), forked from [opensky/Symfony2-coding-standard](https://github.com/opensky/Symfony2-coding-standard) to allow installation with composer.
 
 The reason of the fork is to use this PHP CodeSniffer coding standard with [M6Web/Coke](https://github.com/M6Web/Coke). More details [on our tech blog](http://tech.m6web.fr/verifier-la-coherence-du-code-d-un-projet-symfony2-avec-coke/) (in french).
@@ -51,3 +54,5 @@ Developped by [M6Web](http://tech.m6web.fr/).
 ## License
 
 This project is licensed under the [MIT license](LICENSE).
+
+[![License](https://poser.pugx.org/m6web/symfony2-coding-standard/license)](https://packagist.org/packages/m6web/symfony2-coding-standard)
