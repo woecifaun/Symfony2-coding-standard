@@ -7,10 +7,10 @@
  *
  * @category PHP
  * @package  PHP_CodeSniffer-Symfony2
- * @author   Symfony2-phpcs-authors <Symfony2-coding-standard@opensky.github.com>
+ * @author   Symfony2-phpcs-authors <Symfony2-coding-standard@m6web.github.com>
  * @license  http://spdx.org/licenses/MIT MIT License
  * @version  GIT: master
- * @link     https://github.com/opensky/Symfony2-coding-standard
+ * @link     https://github.com/M6Web/Symfony2-coding-standard
  */
 
 /**
@@ -24,7 +24,7 @@
  * @package  PHP_CodeSniffer-Symfony2
  * @author   Dave Hauenstein <davehauenstein@gmail.com>
  * @license  http://spdx.org/licenses/MIT MIT License
- * @link     https://github.com/opensky/Symfony2-coding-standard
+ * @link     https://github.com/M6Web/Symfony2-coding-standard
  */
 class Symfony2_Sniffs_Classes_MultipleClassesOneFileSniff implements PHP_CodeSniffer_Sniff
 {
