@@ -1,5 +1,5 @@
 {
-    "name": "m6web/symfony2-coding-standard",
+    "name": "woecifaun/symfony2-coding-standard",
     "description": "Symfony2 PHP CodeSniffer Coding Standard",
     "keywords": ["phpcs", "CodeSniffer", "Symfony2", "Standard", "m6web"],
     "license": "MIT",
@@ -10,8 +10,8 @@
         }
     ],
     "support" : {
-        "source": "https://github.com/M6Web/Symfony2-coding-standard",
-        "issues": "https://github.com/M6Web/Symfony2-coding-standard/issues"
+        "source": "https://github.com/woecifaun/Symfony2-coding-standard",
+        "issues": "https://github.com/woecifaun/Symfony2-coding-standard/issues"
     },
     "require": {
         "squizlabs/php_codesniffer": "~2.0"
