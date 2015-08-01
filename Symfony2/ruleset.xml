@@ -50,6 +50,9 @@
     <rule ref="Zend">
         <!-- but exclude their code analyzer -->
         <exclude name="Zend.Debug.CodeAnalyzer"/>
+        
+        <!-- exclude their function signature standard conflicting function multilines signature -->
+        <exclude name="Generic.Functions.OpeningFunctionBraceBsdAllman"/>
 
         <!-- covered by Squiz ControlSignature, which enforces try/catch as well -->
         <exclude name="PEAR.ControlStructures.ControlSignature"/>
